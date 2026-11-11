@@ -10,7 +10,7 @@ namespace tccDiarioDeMonstros.Data
             public AppDbContext(DbContextOptions<AppDbContext> options): base(options)
             {
             }
-            public Dbset<Elemento> Elementos { get; set; }
+            public DbSet<Elemento> Elementos { get; set; }
         }
         
     }
