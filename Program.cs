@@ -1,4 +1,4 @@
-using tccBiblioteca1.Data;
+using tccDiarioDeMonstros.Data;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
