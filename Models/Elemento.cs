@@ -2,7 +2,7 @@
 
 namespace tccDiarioDeMonstros.Models;
 
-    public class Elementos
+    public class Elemento
     {
         public int Id { get; set; }
 
@@ -18,7 +18,7 @@ namespace tccDiarioDeMonstros.Models;
         public string Categoria { get; set; }
         public string Descricao { get; set; }
         public string Tipo { get; set;}
-        public string Elemento { get; set; }
+        public string ElementoPoder { get; set; }
         public string Fraqueza { get; set; }
         public string LocalDeNascimento { get; set; }
 
