@@ -1,0 +1,51 @@
+@page
+@model tccDiarioDeMonstros.Pages.CriarModel
+@{
+    ViewData["Title"] = "Cadastrar Monstro";
+}
+
+<h1>Cadastro de Monstro - Diário de Monstros</h1>
+
+<div class="container mt-4">
+    <form method="post" enctype="multipart/form-data">
+        @Html.AntiForgeryToken()
+
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label for="nome">Nome</label>
+                <input id="nome" asp-for="Elemento.Nome" type="text" class="form-control" required />
+            </div>
+
+            <div class="col-md-6 mb-3">
+                <label for="numero">Número</label>
+                <input id="numero" asp-for="Elemento.Numero" type="number" class="form-control" />
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4 mb-3">
+                <label for="vida">Vida</label>
+                <input id="vida" asp-for="Elemento.Vida" type="number" class="form-control" />
+            </div>
+            <div class="col-md-4 mb-3">
+                <label for="peso">Peso</label>
+                <input id="peso" asp-for="Elemento.Peso" type="text" class="form-control" />
+            </div>
+            <div class="col-md-4 mb-3">
+                <label for="velocidade">Velocidade</label>
+                <input id="velocidade" asp-for="Elemento.Velocidade" type="text" class="form-control" />
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4 mb-3">
+                <label for="forca">Força</label>
+                <input id="forca" asp-for="Elemento.Forca" type="text" class="form-control" />
+            </div>
+            <div class="col-md-4 mb-3">
+                <label for="poder">Poder</label>
+                <input id="poder" asp-for="Elemento.Poder" type="text" class="form-control" />
+            </div>
+            <div class="col-md-4 mb-3">
+                <label for="categoria">Categoria (Pesquisa)</label>
+                <input id="categoria" asp-for="Elemento.Categoria" type="text" class="form-control" />
