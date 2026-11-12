@@ -9,19 +9,22 @@ namespace tccDiarioDeMonstros.Pages
     {
         private readonly LivroDosMisterio _repositorio;
 
-        public PesquisaModel (LivroDosMisterio repositorio)
+        public PesquisaModel(LivroDosMisterio repositorio)
         {
             _repositorio = repositorio;
         }
-        [BindProperty(SupportsGet = true)]
 
+        [BindProperty(SupportsGet = true)]
+        public string Termo { get; set; } = string.Empty;
+
+        [BindProperty(SupportsGet = true)]
         public List<Elemento> Resultados { get; set; } = new();
 
         public void OnGet()
         {
-            if(!string.IsNullOrEmpty(Termo))
+            if (!string.IsNullOrEmpty(Termo))
             {
-                Resultados =  _repositorio.Buscar(Termo);
+                Resultados = _repositorio.Buscar(Termo);
             }
         }
     }
