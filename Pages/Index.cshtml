@@ -1,10 +1,39 @@
 ﻿@page
-@model IndexModel
+@model tccDiarioDeMonstros.Pages.IndexModel
 @{
-    ViewData["Title"] = "Home page";
+    ViewData["Title"] = " Diário De Monstros - Home";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="search-container mb-4">
+<form method = "get" asp-page="/Pesquisa" class= "d-flex gap-2">
+<input type ="text" name = "termo" class = "form-control" placeholder = "Pesquisar por Categoria ou Elemento..." required />
+<button type = "submit" class = "btn btn-primary">Pesquisar</button>
+</form>
+</div>
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h2>Todos os Monstros</h2>
+    <a asp-page = "/Criar" class= "btn btn-success">Cadastrar Novo Monstro</a>
+
+</div>
+<div class="product-grid">
+    @foreach (var item in Model.Elementos)
+    {
+        <article class="produto-card border p-3 mb-3">
+            @if (!string.IsNullOrEmpty(item.Imagem))
+            {
+                <img class="produtos img-fluid" src="@item.Imagem" alt="Imagem do Monstro" style="max-height:150px"/>
+                {
+                    <p><strong>Nome:</strong> @item.Nome (#@item.Numero)</p>
+                    <p><strong>Categoria:</strong> @item.Categoria | <strong>Elemento:</strong>@item.ElementoPoder</p>
+                    <p><strong>Vida:</strong>@item.Vida | <strong>Velocidade:</strong>@item.Velocidade</p>
+                    <form method="post">
+                        <input type="hidden" name="id" value="@item.Id"/>
+                        <button type="submit" class="btn btn-danger btn-sm">Deletar</button>
+                    </form>
+                }
+            }
+        </article>
+    }
+
 </div>
