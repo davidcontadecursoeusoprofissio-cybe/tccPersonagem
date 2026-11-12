@@ -29,15 +29,17 @@ namespace tccDiarioDeMonstros.Data;
             _context.SaveChanges();
         }
     }
-    public List<Elemento> Buscar(string termo)
+ public List<Elemento> Buscar(string termo)
+{
+    if (string.IsNullOrWhiteSpace(termo))
     {
-        if(string.IsNullOrWhiteSpace(termo))
-        {
-            return new List<Elemento>();
-            {
-                return _context.Elementos.Where(e => e.Categoria.Contains(termo) || e.ElementoPoder.Contains(termo)).ToList();
-            }
-        }
+        return new List<Elemento>();
     }
+
+    return _context.Elementos
+        .Where(e => e.Categoria.Contains(termo) ||
+                    e.ElementoPoder.Contains(termo))
+        .ToList();
+}
         
     }
