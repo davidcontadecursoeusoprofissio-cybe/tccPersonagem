@@ -1,4 +1,3 @@
-
 @page
 @model tccDiarioDeMonstros.Pages.CriarModel
 @{
@@ -54,6 +53,22 @@
             <div class="col-md-4 mb-3">
                 <label for="categoria">Categoria (Pesquisa)</label>
                 <input id="categoria" asp-for="Elemento.Categoria" type="text" class="form-control" />
+            </div>
+        </div>
+
+        <!-- Novo campo para upload de imagem -->
+        <div class="row">
+            <div class="col-md-12 mb-3">
+                <label for="imagemFile">Imagem do Monstro</label>
+                <!-- Usamos IFormFile no PageModel para receber o arquivo enviado -->
+                <input id="imagemFile" name="ImagemUpload" type="file" class="form-control" accept="image/*" />
+            </div>
+        </div>
+
+        <!-- Botão de Envio -->
+        <div class="row">
+            <div class="col-md-12">
+                <button type="submit" class="btn btn-success">Cadastrar Monstro</button>
             </div>
         </div>
     </form>
