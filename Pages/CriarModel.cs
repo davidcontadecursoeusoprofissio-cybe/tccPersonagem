@@ -1,3 +1,7 @@
+
+
+
+
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using tccDiarioDeMonstros.Data;
@@ -35,11 +39,9 @@ public class CriarModel(LivroDosMisterio repositorio, IWebHostEnvironment enviro
                 await ArquivoImagem.CopyToAsync(stream);
             }
             Elemento.Imagem = "/imagens/" + nomeUnicoArquivo;
-            
-            repositorio.Adicionar(Elemento);
-            return RedirectToPage("/Index");
         }
 
-        return Page();
+        repositorio.Adicionar(Elemento);
+        return RedirectToPage("/Index");
     }
 }

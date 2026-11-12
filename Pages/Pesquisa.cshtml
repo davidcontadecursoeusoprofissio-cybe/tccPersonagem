@@ -1,32 +1,43 @@
+
+
 @page
 @model tccDiarioDeMonstros.Pages.PesquisaModel
+
 @{
-    ViewData["Title"] = "REsultados da Pesquisa";
+    ViewData["Title"] = "Resultados da Pesquisa";
 }
-<h2>Resultados para:"@Model.Termo"</h2>
+
+<h2>Resultados para: "@Model.Termo"</h2>
 
 <a asp-page="/Index" class="btn btn-secondary mb-3">Voltar à Página Principal</a>
+
 @if (Model.Resultados.Any())
 {
     <div class="product-grid">
         @foreach (var item in Model.Resultados)
         {
             <article class="product-card border p-3 mb-3">
-                @if(!string.IsNullOrEmpty(item.Imagem))
+                @if (!string.IsNullOrEmpty(item.Imagem))
                 {
-                    <img class="produtos img-fluid" src="@item.Imagem" alt="Imagem do monstro" style="max-height: 150px;"/>
-                    {
-                        <p><strong>@item.Nome</strong></p>
-                        <p><strong>Categoria:</strong>@item.Categoria</p>
-                        <p><strong>Elemento:</strong>@item.ElementoPoder</p>
-                        <p><strong>Vida:</strong>@item.Vida|<strong>Força:</strong>@item.Forca</p>
-                        <p><strong>Local de Nascimento:</strong>@item.LocalDeNascimento</p>
-                    }
+                    <img src="@item.Imagem" alt="Imagem de @item.Nome" class="produtos img-fluid" style="max-height:150px;" />
                 }
+
+                <h3>@item.Nome</h3>
+                <p><strong>Número:</strong> @item.Numero</p>
+                <p><strong>Vida:</strong> @item.Vida</p>
+                <p><strong>Peso:</strong> @item.Peso</p>
+                <p><strong>Velocidade:</strong> @item.Velocidade</p>
+                <p><strong>Força:</strong> @item.Forca</p>
+                <p><strong>Poder:</strong> @item.Poder</p>
+                <p><strong>Categoria:</strong> @item.Categoria</p>
+                <p><strong>Descrição:</strong> @item.Descricao</p>
+                <p><strong>Tipo:</strong> @item.Tipo</p>
+                <p><strong>Elemento:</strong> @item.ElementoPoder</p>
+                <p><strong>Fraqueza:</strong> @item.Fraqueza</p>
+                <p><strong>Local de Nascimento:</strong> @item.LocalDeNascimento</p>
             </article>
         }
     </div>
-    
 }
 else
 {

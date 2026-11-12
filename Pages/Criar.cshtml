@@ -1,5 +1,7 @@
+
 @page
 @model tccDiarioDeMonstros.Pages.CriarModel
+
 @{
     ViewData["Title"] = "Cadastrar Monstro";
 }
@@ -8,68 +10,96 @@
 
 <div class="container mt-4">
     <form method="post" enctype="multipart/form-data">
-        @Html.AntiForgeryToken()
+        <div asp-validation-summary="All" class="text-danger"></div>
 
         <div class="row">
             <div class="col-md-6 mb-3">
-                <label for="nome">Nome</label>
-                <input id="nome" asp-for="Elemento.Nome" type="text" class="form-control" required />
+                <label asp-for="Elemento.Nome">Nome</label>
+                <input asp-for="Elemento.Nome" class="form-control" required />
             </div>
 
             <div class="col-md-6 mb-3">
-                <label for="numero">Número</label>
-                <input id="numero" asp-for="Elemento.Numero" type="number" class="form-control" />
+                <label asp-for="Elemento.Numero">Número</label>
+                <input asp-for="Elemento.Numero" type="number" class="form-control" />
             </div>
         </div>
 
         <div class="row">
             <div class="col-md-4 mb-3">
-                <label for="vida">Vida</label>
-                <input id="vida" asp-for="Elemento.Vida" type="number" class="form-control" />
+                <label asp-for="Elemento.Vida">Vida</label>
+                <input asp-for="Elemento.Vida" type="number" class="form-control" />
             </div>
 
             <div class="col-md-4 mb-3">
-                <label for="peso">Peso</label>
-                <input id="peso" asp-for="Elemento.Peso" type="text" class="form-control" />
+                <label asp-for="Elemento.Peso">Peso</label>
+                <input asp-for="Elemento.Peso" type="number" step="any" class="form-control" />
             </div>
 
             <div class="col-md-4 mb-3">
-                <label for="velocidade">Velocidade</label>
-                <input id="velocidade" asp-for="Elemento.Velocidade" type="text" class="form-control" />
+                <label asp-for="Elemento.Velocidade">Velocidade</label>
+                <input asp-for="Elemento.Velocidade" type="number" step="any" class="form-control" />
             </div>
         </div>
 
         <div class="row">
             <div class="col-md-4 mb-3">
-                <label for="forca">Força</label>
-                <input id="forca" asp-for="Elemento.Forca" type="text" class="form-control" />
+                <label asp-for="Elemento.Forca">Força</label>
+                <input asp-for="Elemento.Forca" type="number" step="any" class="form-control" />
             </div>
 
             <div class="col-md-4 mb-3">
-                <label for="poder">Poder</label>
-                <input id="poder" asp-for="Elemento.Poder" type="text" class="form-control" />
+                <label asp-for="Elemento.Poder">Poder</label>
+                <input asp-for="Elemento.Poder" type="number" step="any" class="form-control" />
             </div>
 
             <div class="col-md-4 mb-3">
-                <label for="categoria">Categoria (Pesquisa)</label>
-                <input id="categoria" asp-for="Elemento.Categoria" type="text" class="form-control" />
+                <label asp-for="Elemento.Categoria">Categoria</label>
+                <input asp-for="Elemento.Categoria" class="form-control" />
             </div>
         </div>
 
-        <!-- Novo campo para upload de imagem -->
+        <div class="mb-3">
+            <label asp-for="Elemento.Descricao">Descrição</label>
+            <textarea asp-for="Elemento.Descricao" class="form-control" rows="3"></textarea>
+        </div>
+
         <div class="row">
-            <div class="col-md-12 mb-3">
-                <label for="imagemFile">Imagem do Monstro</label>
-                <!-- Usamos IFormFile no PageModel para receber o arquivo enviado -->
-                <input id="imagemFile" name="ImagemUpload" type="file" class="form-control" accept="image/*" />
+            <div class="col-md-6 mb-3">
+                <label asp-for="Elemento.Tipo">Tipo</label>
+                <input asp-for="Elemento.Tipo" class="form-control" />
+            </div>
+
+            <div class="col-md-6 mb-3">
+                <label asp-for="Elemento.ElementoPoder">Elemento de Poder</label>
+                <input asp-for="Elemento.ElementoPoder" class="form-control" />
             </div>
         </div>
 
-        <!-- Botão de Envio -->
         <div class="row">
-            <div class="col-md-12">
-                <button type="submit" class="btn btn-success">Cadastrar Monstro</button>
+            <div class="col-md-6 mb-3">
+                <label asp-for="Elemento.Fraqueza">Fraqueza</label>
+                <input asp-for="Elemento.Fraqueza" class="form-control" />
+            </div>
+
+            <div class="col-md-6 mb-3">
+                <label asp-for="Elemento.LocalDeNascimento">Local de Nascimento</label>
+                <input asp-for="Elemento.LocalDeNascimento" class="form-control" />
             </div>
         </div>
+
+        <hr />
+        <h4>Imagem do Monstro</h4>
+
+        <div class="mb-3">
+            <label>Escolher imagem do computador</label>
+            <input asp-for="ArquivoImagem" type="file" class="form-control" accept=".jpg,.jpeg,.png,.gif,.webp" />
+        </div>
+
+        <button type="submit" class="btn btn-success">Cadastrar Monstro</button>
+        <a asp-page="/Index" class="btn btn-secondary">Voltar</a>
     </form>
 </div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
