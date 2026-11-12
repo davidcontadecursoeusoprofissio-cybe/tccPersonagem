@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("tccDiarioDeMonstros")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d7f633f49206b77d10efd2840277f4bcb0161b59")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b726e2eee18e58b914914c2e48915e36a1c4dbe9")]
 [assembly: System.Reflection.AssemblyProductAttribute("tccDiarioDeMonstros")]
 [assembly: System.Reflection.AssemblyTitleAttribute("tccDiarioDeMonstros")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
