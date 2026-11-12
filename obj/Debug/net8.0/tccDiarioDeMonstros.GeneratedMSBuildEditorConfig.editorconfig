@@ -18,12 +18,20 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\CENTE\tccDiarioDeMonstros
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/CENTE/tccDiarioDeMonstros/Pages/Criar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ3JpYXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/CENTE/tccDiarioDeMonstros/Pages/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/CENTE/tccDiarioDeMonstros/Pages/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/CENTE/tccDiarioDeMonstros/Pages/Pesquisa.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGVzcXVpc2EuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/CENTE/tccDiarioDeMonstros/Pages/Privacy.cshtml]
