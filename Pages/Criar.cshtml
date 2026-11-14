@@ -1,4 +1,5 @@
 
+
 @page
 @model tccDiarioDeMonstros.Pages.CriarModel
 
@@ -6,98 +7,104 @@
     ViewData["Title"] = "Cadastrar Monstro";
 }
 
-<h1>Cadastro de Monstro - Diário de Monstros</h1>
+<div class="container mt-4" style="max-width: 850px;">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1 class="h2 mb-0">Novo Registro no Diário</h1>
+        <a asp-page="/Index" class="btn btn-outline-light">Voltar</a>
+    </div>
 
-<div class="container mt-4">
-    <form method="post" enctype="multipart/form-data">
-        <div asp-validation-summary="All" class="text-danger"></div>
+    <div class="form-card">
+        <form method="post" enctype="multipart/form-data">
+            <div asp-validation-summary="All" class="text-danger mb-3"></div>
 
-        <div class="row">
-            <div class="col-md-6 mb-3">
-                <label asp-for="Elemento.Nome">Nome</label>
-                <input asp-for="Elemento.Nome" class="form-control" required />
+            <div class="row">
+                <div class="col-md-8 mb-3">
+                    <label asp-for="Elemento.Nome">Nome da Criatura</label>
+                    <input asp-for="Elemento.Nome" class="form-control" placeholder="Ex: Dragão de Obsidiana" required />
+                </div>
+
+                <div class="col-md-4 mb-3">
+                    <label asp-for="Elemento.Numero">Número no Diário</label>
+                    <input asp-for="Elemento.Numero" type="number" class="form-control" placeholder="Ex: 001" />
+                </div>
             </div>
 
-            <div class="col-md-6 mb-3">
-                <label asp-for="Elemento.Numero">Número</label>
-                <input asp-for="Elemento.Numero" type="number" class="form-control" />
-            </div>
-        </div>
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <label asp-for="Elemento.Vida">Vida (HP)</label>
+                    <input asp-for="Elemento.Vida" type="number" class="form-control" />
+                </div>
 
-        <div class="row">
-            <div class="col-md-4 mb-3">
-                <label asp-for="Elemento.Vida">Vida</label>
-                <input asp-for="Elemento.Vida" type="number" class="form-control" />
-            </div>
+                <div class="col-md-4 mb-3">
+                    <label asp-for="Elemento.Forca">Força</label>
+                    <input asp-for="Elemento.Forca" type="number" step="any" class="form-control" />
+                </div>
 
-            <div class="col-md-4 mb-3">
-                <label asp-for="Elemento.Peso">Peso</label>
-                <input asp-for="Elemento.Peso" type="number" step="any" class="form-control" />
-            </div>
-
-            <div class="col-md-4 mb-3">
-                <label asp-for="Elemento.Velocidade">Velocidade</label>
-                <input asp-for="Elemento.Velocidade" type="number" step="any" class="form-control" />
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-md-4 mb-3">
-                <label asp-for="Elemento.Forca">Força</label>
-                <input asp-for="Elemento.Forca" type="number" step="any" class="form-control" />
+                <div class="col-md-4 mb-3">
+                    <label asp-for="Elemento.Poder">Poder Mágico</label>
+                    <input asp-for="Elemento.Poder" type="number" step="any" class="form-control" />
+                </div>
             </div>
 
-            <div class="col-md-4 mb-3">
-                <label asp-for="Elemento.Poder">Poder</label>
-                <input asp-for="Elemento.Poder" type="number" step="any" class="form-control" />
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <label asp-for="Elemento.Velocidade">Velocidade</label>
+                    <input asp-for="Elemento.Velocidade" type="number" step="any" class="form-control" />
+                </div>
+
+                <div class="col-md-4 mb-3">
+                    <label asp-for="Elemento.Peso">Peso (kg)</label>
+                    <input asp-for="Elemento.Peso" type="number" step="any" class="form-control" />
+                </div>
+
+                <div class="col-md-4 mb-3">
+                    <label asp-for="Elemento.Categoria">Categoria</label>
+                    <input asp-for="Elemento.Categoria" class="form-control" placeholder="Ex: Chefe, Comum..." />
+                </div>
             </div>
 
-            <div class="col-md-4 mb-3">
-                <label asp-for="Elemento.Categoria">Categoria</label>
-                <input asp-for="Elemento.Categoria" class="form-control" />
-            </div>
-        </div>
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label asp-for="Elemento.Tipo">Tipo</label>
+                    <input asp-for="Elemento.Tipo" class="form-control" placeholder="Ex: Réptil, Espírito..." />
+                </div>
 
-        <div class="mb-3">
-            <label asp-for="Elemento.Descricao">Descrição</label>
-            <textarea asp-for="Elemento.Descricao" class="form-control" rows="3"></textarea>
-        </div>
-
-        <div class="row">
-            <div class="col-md-6 mb-3">
-                <label asp-for="Elemento.Tipo">Tipo</label>
-                <input asp-for="Elemento.Tipo" class="form-control" />
+                <div class="col-md-6 mb-3">
+                    <label asp-for="Elemento.ElementoPoder">Elemento de Poder</label>
+                    <input asp-for="Elemento.ElementoPoder" class="form-control" placeholder="Ex: Fogo, Sombra..." />
+                </div>
             </div>
 
-            <div class="col-md-6 mb-3">
-                <label asp-for="Elemento.ElementoPoder">Elemento de Poder</label>
-                <input asp-for="Elemento.ElementoPoder" class="form-control" />
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label asp-for="Elemento.Fraqueza">Fraqueza</label>
+                    <input asp-for="Elemento.Fraqueza" class="form-control" placeholder="Ex: Gelo, Luz..." />
+                </div>
+
+                <div class="col-md-6 mb-3">
+                    <label asp-for="Elemento.LocalDeNascimento">Local de Nascimento / Habitat</label>
+                    <input asp-for="Elemento.LocalDeNascimento" class="form-control" placeholder="Ex: Vulcão Cinzento" />
+                </div>
             </div>
-        </div>
 
-        <div class="row">
-            <div class="col-md-6 mb-3">
-                <label asp-for="Elemento.Fraqueza">Fraqueza</label>
-                <input asp-for="Elemento.Fraqueza" class="form-control" />
+            <div class="mb-3">
+                <label asp-for="Elemento.Descricao">Descrição e Comportamento</label>
+                <textarea asp-for="Elemento.Descricao" class="form-control" rows="3" placeholder="Descreva a história e habilidades do monstro..."></textarea>
             </div>
 
-            <div class="col-md-6 mb-3">
-                <label asp-for="Elemento.LocalDeNascimento">Local de Nascimento</label>
-                <input asp-for="Elemento.LocalDeNascimento" class="form-control" />
+            <hr style="border-color: var(--border-color);" class="my-4" />
+
+            <div class="mb-4">
+                <label>Imagem do Monstro</label>
+                <input asp-for="ArquivoImagem" type="file" class="form-control" accept=".jpg,.jpeg,.png,.gif,.webp" />
             </div>
-        </div>
 
-        <hr />
-        <h4>Imagem do Monstro</h4>
-
-        <div class="mb-3">
-            <label>Escolher imagem do computador</label>
-            <input asp-for="ArquivoImagem" type="file" class="form-control" accept=".jpg,.jpeg,.png,.gif,.webp" />
-        </div>
-
-        <button type="submit" class="btn btn-success">Cadastrar Monstro</button>
-        <a asp-page="/Index" class="btn btn-secondary">Voltar</a>
-    </form>
+            <div class="d-flex gap-2 justify-content-end">
+                <a asp-page="/Index" class="btn btn-secondary px-4">Cancelar</a>
+                <button type="submit" class="btn btn-success px-4">Salvar no Diário</button>
+            </div>
+        </form>
+    </div>
 </div>
 
 @section Scripts {

@@ -1,45 +1,95 @@
 
 
+
 @page
-@model tccDiarioDeMonstros.Pages.PesquisaModel
+@model tccDiarioDeMonstros.Pages.IndexModel
 
 @{
-    ViewData["Title"] = "Resultados da Pesquisa";
+    ViewData["Title"] = "Diário de Monstros - Home";
 }
 
-<h2>Resultados para: "@Model.Termo"</h2>
+<div class="search-container mb-4">
+    <form method="get" asp-page="/Pesquisa" class="d-flex gap-2">
+        <input type="text" name="termo" class="form-control" placeholder="Pesquisar monstro por nome, tipo ou elemento..." required />
+        <button type="submit" class="btn btn-primary px-4">Pesquisar</button>
+    </form>
+</div>
 
-<a asp-page="/Index" class="btn btn-secondary mb-3">Voltar à Página Principal</a>
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h2 class="mb-0">Bestiário Completo</h2>
+    <a asp-page="/Criar" class="btn btn-success">+ Cadastrar Monstro</a>
+</div>
 
-@if (Model.Resultados.Any())
-{
-    <div class="product-grid">
-        @foreach (var item in Model.Resultados)
-        {
-            <article class="product-card border p-3 mb-3">
+<div class="product-grid">
+    @foreach (var item in Model.Elementos)
+    {
+        <article class="monster-card">
+            <div class="monster-img-wrapper">
+                <span class="monster-number">#@item.Numero</span>
                 @if (!string.IsNullOrEmpty(item.Imagem))
                 {
-                    <img src="@item.Imagem" alt="Imagem de @item.Nome" class="produtos img-fluid" style="max-height:150px;" />
+                    <img src="@item.Imagem" alt="Imagem de @item.Nome" />
                 }
+                else
+                {
+                    <span class="text-muted">Sem imagem</span>
+                }
+            </div>
 
-                <h3>@item.Nome</h3>
-                <p><strong>Número:</strong> @item.Numero</p>
-                <p><strong>Vida:</strong> @item.Vida</p>
-                <p><strong>Peso:</strong> @item.Peso</p>
-                <p><strong>Velocidade:</strong> @item.Velocidade</p>
-                <p><strong>Força:</strong> @item.Forca</p>
-                <p><strong>Poder:</strong> @item.Poder</p>
-                <p><strong>Categoria:</strong> @item.Categoria</p>
-                <p><strong>Descrição:</strong> @item.Descricao</p>
-                <p><strong>Tipo:</strong> @item.Tipo</p>
-                <p><strong>Elemento:</strong> @item.ElementoPoder</p>
-                <p><strong>Fraqueza:</strong> @item.Fraqueza</p>
-                <p><strong>Local de Nascimento:</strong> @item.LocalDeNascimento</p>
-            </article>
-        }
-    </div>
-}
-else
-{
-    <p>Nenhum monstro encontrado com este termo.</p>
-}
+            <div class="monster-body">
+                <h3 class="monster-title">@item.Nome</h3>
+
+                <div class="monster-badges">
+                    @if (!string.IsNullOrEmpty(item.Tipo))
+                    {
+                        <span class="badge-custom">@item.Tipo</span>
+                    }
+                    @if (!string.IsNullOrEmpty(item.ElementoPoder))
+                    {
+                        <span class="badge-custom badge-elemento">@item.ElementoPoder</span>
+                    }
+                    @if (!string.IsNullOrEmpty(item.Categoria))
+                    {
+                        <span class="badge-custom badge-categoria">@item.Categoria</span>
+                    }
+                </div>
+
+                <p class="monster-desc">@item.Descricao</p>
+
+                <div class="stats-grid">
+                    <div class="stat-box">
+                        <span class="stat-label">Vida</span>
+                        <span class="stat-value text-success">@item.Vida</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-label">Força</span>
+                        <span class="stat-value text-danger">@item.Forca</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-label">Poder</span>
+                        <span class="stat-value text-info">@item.Poder</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-label">Veloc.</span>
+                        <span class="stat-value">@item.Velocidade</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-label">Peso</span>
+                        <span class="stat-value">@item.Peso kg</span>
+                    </div>
+                </div>
+
+                <div class="monster-meta mt-auto">
+                    <p><strong>Fraqueza:</strong> @item.Fraqueza</p>
+                    <p><strong>Origem:</strong> @item.LocalDeNascimento</p>
+                </div>
+
+                <form method="post" class="mt-2">
+                    @Html.AntiForgeryToken()
+                    <input type="hidden" name="id" value="@item.Id" />
+                    <button type="submit" class="btn btn-outline-danger btn-sm w-100">Deletar Registro</button>
+                </form>
+            </div>
+        </article>
+    }
+</div>
